@@ -43,3 +43,13 @@
 .boxes img {
     margin: 50px 50px;
 }
+.custom-image {
+    width: 100px;
+    height: 100px;
+    padding: 15px 15px;
+}
+.custom-image2 {
+    width: 100px;
+    height: 100px;
+    padding: 15px 15px;
+}
