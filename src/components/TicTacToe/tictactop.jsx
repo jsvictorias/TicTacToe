@@ -96,12 +96,7 @@ const TicTacToe = () => {
             w.current.innerHTML = "";
         })
     }
-
-   
-    
-
-
-   
+       
     return(
         <div className='container'>
             <h1 className='title' ref={titleRef}> Tic Tac Toe <span>Game</span></h1>
