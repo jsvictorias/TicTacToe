@@ -3,6 +3,7 @@ import './tictactoe.css'
 import exis from '../assets/exis.png'
 import ow from '../assets/ow.png'
 
+
 let data = ["", "", "", "", "", "", "", "", ""];
 
 
@@ -33,7 +34,7 @@ const TicTacToe = () => {
             data[num]="x";
             setCount(++count);
         } else {
-            w.target.innerHTML = `<img src = '${ow}'>`;
+            w.target.innerHTML = `<img src ='${ow}'>`;
             data[num]="o";
             setCount(++count);
         }
@@ -84,10 +85,10 @@ const TicTacToe = () => {
         if (winner === "x"){
             titleRef.current.innerHTML = `Congratulations: <img class="custom-image" src=${exis}> wins`
         }
-        if (winner === "o") {
-            titleRef.current.innerHTML = `Congratulations: <img class="custom-image2" src=${ow} wins`
+        else {
+            titleRef.current.innerHTML = `Congratulations: <img class="custom-image" src=${ow}> wins`;
         }
-    }
+    } 
     const reset = () => {
         setLock(false);
         
