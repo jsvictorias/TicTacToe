@@ -3,8 +3,8 @@ import './tictactoe.css'
 import exis from '../assets/exis.png'
 import ow from '../assets/ow.png'
 import { motion } from "framer-motion"
-import Won from '../TicTacToe/won';
-import Reset from './reset';
+
+
 
 
 let data = ["", "", "", "", "", "", "", "", ""];
@@ -25,7 +25,7 @@ const TicTacToe = () => {
     let box8 = useRef(null);
     let box9 = useRef(null);
 
-    let boxRefs = [box1, box2,box3, box4, box5, box6, box7, box8, box9];
+    let box_array = [box1, box2,box3, box4, box5, box6, box7, box8, box9];
 
 
     const toggole = (w, num) => {
@@ -48,46 +48,59 @@ const TicTacToe = () => {
     const checkWin = () => {
         if (data[0] === data[1] && data[1] === data[2] && data[2] !== ""){
             console.log("Win condition met: Row 1");
-            Won(data[2], setLock, titleRef); 
+            won(data[2]); 
         }
         else if(data[3] === data[4] && data[4] === data[5] && data[5] !== ""){
             console.log("Win condition met: Row 1");
-            Won(data[5],setLock, titleRef);
+            won(data[5]);
         }
         else if(data[6] === data[7] && data[7] === data[8] && data[8] !== ""){
             console.log("Win condition met: Row 1");
-            Won(data[8],setLock, titleRef);
+            won(data[8]);
         }
         else if(data[0] === data[3] && data[3] === data[6] && data[6] !== ""){
             console.log("Win condition met: Row 1");
-            Won(data[6],setLock, titleRef);
+            won(data[6]);
         }
         else if(data[1] === data[4] && data[4] === data[7] && data[7] !== ""){
             console.log("Win condition met: Row 1");
-            Won(data[7],setLock, titleRef);
+            won(data[7]);
         }
         else if(data[2] === data[5] && data[5] === data[8] && data[8] !== ""){
             console.log("Win condition met: Row 1");
-            Won(data[8],setLock, titleRef);
+            won(data[8]);
         }
         else if(data[0] === data[4] && data[4] === data[8] && data[8] !== ""){
             console.log("Win condition met: Row 1");
-            Won(data[8],setLock, titleRef);
+            won(data[8]);
         }
         else if(data[0] === data[1] && data[1] === data[2] && data[2] !== ""){
             console.log("Win condition met: Row 1");
-            Won(data[2],setLock, titleRef);
+            won(data[2]);
         }
         else if(data[2] === data[4] && data[4] === data[6] && data[6] !== ""){
             console.log("Win condition met: Row 1");
-            Won(data[6],setLock, titleRef);
+            won(data[6]);
         }  
+    }
+    const won = (winner) => {
+        setLock(true);
+        if (winner === "x"){
+            titleRef.current.innerHTML = `Congratulations: <img class="custom-image" src=${exis}> wins`
+        }
+        if (winner === "o") {
+            titleRef.current.innerHTML = `Congratulations: <img class="custom-image" src=${ow}> wins`
+        }
     }
     
     const reset = () => {
-        Reset({setLock, titleRef, boxRefs})
+        titleRef.current.innerHTML = "Tic Tac Toe <span>Game</span>"
+        box_array.map((w)=>{
+            w.current.innerHTML = "";
+        })
+        setLock(false);
+        
     }
-       
     return(
         <div className='container'>
             <h1 className='title' ref={titleRef}> Tic Tac Toe <span>Game</span></h1>
